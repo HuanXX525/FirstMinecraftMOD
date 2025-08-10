@@ -1,10 +1,14 @@
 package net.huanxx.mymod;
 
 import com.mojang.logging.LogUtils;
+import net.huanxx.mymod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -34,6 +38,8 @@ public class MyMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -46,10 +52,16 @@ public class MyMod
 
     }
 
-    // Add the example block item to the building blocks tab
+    /**
+     * <p>这也是一个回调函数，订阅了事件 {@link BuildCreativeModeTabContentsEvent }</p><br>
+     * 通过{@link IEventBus}的<b>addListener</b>订阅
+     * @param event 具体订阅的事件
+     */
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.HUANXX1ITEM);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
