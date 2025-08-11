@@ -1,6 +1,7 @@
 package net.huanxx.mymod;
 
 import com.mojang.logging.LogUtils;
+import net.huanxx.mymod.block.ModBlocks;
 import net.huanxx.mymod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -39,6 +40,7 @@ public class MyMod
         MinecraftForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -54,13 +56,20 @@ public class MyMod
 
     /**
      * <p>这也是一个回调函数，订阅了事件 {@link BuildCreativeModeTabContentsEvent }</p><br>
-     * 通过{@link IEventBus}的<b>addListener</b>订阅
+     * 通过{@link IEventBus}的<b>addListener订阅<br>
+     * accept函数接收实现了ItemLike的类
+     * </b>
      * @param event 具体订阅的事件
      */
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        // 材料列表
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.HUANXX1ITEM);
+        }
+        // 建筑方块列表
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModBlocks.HUANXX1BLOCK);
         }
     }
 
