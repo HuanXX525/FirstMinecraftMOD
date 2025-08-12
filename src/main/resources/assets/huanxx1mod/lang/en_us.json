@@ -1,4 +1,11 @@
 {
   "item.huanxx1mod.huanxx1item": "Huanxx's first item",
-  "block.huanxx1mod.huanxx1block": "Block of first item"
+  "block.huanxx1mod.huanxx1block": "Block of first item",
+  "creativetab.huanxx1mod.mymod1": "Tab of Huanxx1mod 1",
+  "item.huanxx1mod.getgoldtool": "click to gold tool",
+  "block.huanxx1mod.magicblock": "turn 1 item to diamond",
+  "item.huanxx1mod.specialfood": "youye ver food",
+  "tooltip.huanxx1mod.magicblock": "try throw §bmy first item§r on it",
+  "tooltip.huanxx1mod.huanxx1custom": "press §n§eshift§r to see detail",
+  "tooltip.huanxx1mod.huanxx1custom.detail": "right click to get gold block"
 }

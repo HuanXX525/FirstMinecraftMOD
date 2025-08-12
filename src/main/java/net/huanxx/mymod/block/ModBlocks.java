@@ -1,6 +1,7 @@
 package net.huanxx.mymod.block;
 
 import net.huanxx.mymod.MyMod;
+import net.huanxx.mymod.block.custom.MagicBlock;
 import net.huanxx.mymod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -17,9 +18,12 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MyMod.MOD_ID);
 
-    public static final RegistryObject<Block> HUANXX1BLOCK = registerBlock("huanxx1block", ()->new Block(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(
+    public static final RegistryObject<Block> HUANXX_1_BLOCK = registerBlock("huanxx1block", ()->new Block(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(
             SoundType.AMETHYST
     )));
+
+    public static final RegistryObject<Block> MAGIC_BLOCK = registerBlock("magicblock",
+            ()->new MagicBlock(BlockBehaviour.Properties.of().strength(3f).sound(SoundType.GLASS)));
 
     public static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T>block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

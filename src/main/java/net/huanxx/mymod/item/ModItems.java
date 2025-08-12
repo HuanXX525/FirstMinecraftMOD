@@ -1,11 +1,15 @@
 package net.huanxx.mymod.item;
 
 import net.huanxx.mymod.MyMod;
+import net.huanxx.mymod.item.custom.Huanxx1Custom;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.Nullable;
 
 public class ModItems {
     /**<p>
@@ -28,5 +32,19 @@ public class ModItems {
      * </p>
      *
      */
-    public static final RegistryObject<Item> HUANXX1ITEM = ITEMS.register("huanxx1item", ()->{return new Item(new Item.Properties());});
+    public static final RegistryObject<Item> HUANXX_1_ITEM = ITEMS.register("huanxx1item", ()->{return new Item(new Item.Properties());});
+    public static final RegistryObject<Item> HUANXX_GET_GOLD_TOOL = ITEMS.register("getgoldtool", ()->new Huanxx1Custom(new Item.Properties().durability(16)));
+    /**
+     * <p>
+     *     下面的Item实例后面紧跟大括号，是匿名子类的用法，用于临时复写父类方法等<br>
+     *     在这里不需要定义单独的物品类来继承Item，直接将内容写在大括号内即可<br>
+     *     由于是匿名类，其构造方法变为了初始化块 { }
+     * </p>
+     */
+    public static final RegistryObject<Item> SPECIAL_FOOD = ITEMS.register("specialfood", ()->new Item(new Item.Properties().food(ModFoodProperties.SPECIAL_FOOD)){
+        @Override
+        public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {
+            return 300;
+        }
+    });
 }

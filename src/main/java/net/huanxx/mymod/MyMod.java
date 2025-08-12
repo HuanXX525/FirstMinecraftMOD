@@ -2,14 +2,13 @@ package net.huanxx.mymod;
 
 import com.mojang.logging.LogUtils;
 import net.huanxx.mymod.block.ModBlocks;
+import net.huanxx.mymod.item.ModCreativeItemTab;
 import net.huanxx.mymod.item.ModItems;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -39,6 +38,8 @@ public class MyMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModCreativeItemTab.register(modEventBus);
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
@@ -65,11 +66,11 @@ public class MyMod
     {
         // 材料列表
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.HUANXX1ITEM);
+            event.accept(ModItems.HUANXX_1_ITEM);
         }
         // 建筑方块列表
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-            event.accept(ModBlocks.HUANXX1BLOCK);
+            event.accept(ModBlocks.HUANXX_1_BLOCK);
         }
     }
 
