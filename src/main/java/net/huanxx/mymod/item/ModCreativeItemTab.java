@@ -26,6 +26,8 @@ public class ModCreativeItemTab {
                 output.accept(ModItems.HUANXX_GET_GOLD_TOOL.get());
                 output.accept(ModBlocks.MAGIC_BLOCK.get());
                 output.accept(ModItems.SPECIAL_FOOD.get());
+                // 将物品添加到物品栏的自定义Tab中
+                output.accept(ModItems.TEST_ITEM.get());
             }).build()
     );
 

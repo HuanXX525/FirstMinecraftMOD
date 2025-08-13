@@ -2,6 +2,7 @@ package net.huanxx.mymod.item;
 
 import net.huanxx.mymod.MyMod;
 import net.huanxx.mymod.item.custom.Huanxx1Custom;
+import net.huanxx.mymod.item.custom.TestItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -20,12 +21,11 @@ public class ModItems {
      * </p>
      * */
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MyMod.MOD_ID);
+
     /**
-     *  <h3>该函数让物品注册器订阅了全局事件总线</h3>
-     * */
-    public static void register(IEventBus iEventBus){
-        ITEMS.register(iEventBus);
-    }
+     * <p>使用注册器注册物品</p>
+     */
+    public static final RegistryObject<Item> TEST_ITEM = ITEMS.register("testitem", ()->new TestItem(new Item.Properties()));
     /** <p>
      * 这是我添加的第一个物品<br>
      * 第二个参数<i>supplier</i>实际上就是一个工厂函数，使用箭头函数快速书写为如下
@@ -47,4 +47,10 @@ public class ModItems {
             return 300;
         }
     });
+    /**
+     *  <h3>该函数让物品注册器订阅了全局事件总线</h3>
+     * */
+    public static void register(IEventBus iEventBus){
+        ITEMS.register(iEventBus);
+    }
 }

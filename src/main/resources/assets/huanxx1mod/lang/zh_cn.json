@@ -7,5 +7,7 @@
   "item.huanxx1mod.specialfood": "怪诞屋特供小零食",
   "tooltip.huanxx1mod.magicblock": "尝试将 §b绮梦度假村兔兔币§r 放在上面",
   "tooltip.huanxx1mod.huanxx1custom": "按 §n§eshift§r 查看详情",
-  "tooltip.huanxx1mod.huanxx1custom.detail": "右键变金块"
+  "tooltip.huanxx1mod.huanxx1custom.detail": "右键变金块",
+  "tooltip.huanxx1mod.testitem": "我是一条可翻译的提示！§r",
+  "item.huanxx1mod.testitem": "物品测试工具"
 }

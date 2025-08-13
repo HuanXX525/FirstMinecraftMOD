@@ -7,5 +7,7 @@
   "item.huanxx1mod.specialfood": "youye ver food",
   "tooltip.huanxx1mod.magicblock": "try throw §bmy first item§r on it",
   "tooltip.huanxx1mod.huanxx1custom": "press §n§eshift§r to see detail",
-  "tooltip.huanxx1mod.huanxx1custom.detail": "right click to get gold block"
+  "tooltip.huanxx1mod.huanxx1custom.detail": "right click to get gold block",
+  "tooltip.huanxx1mod.testitem": "I am a translatable tooltip!§r",
+  "item.huanxx1mod.testitem": "Test Item"
 }
